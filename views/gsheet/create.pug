@@ -1,0 +1,46 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  title Nhi&ecirc;n Li&#x1EC7;u
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+  link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T', crossorigin='anonymous')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM', crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js')
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css')
+  script(src='../alarm.js')
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='#') Duy T&acirc;n
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Th&ecirc;m nhi&ecirc;n li&#x1EC7;u
+          span.sr-only (current)
+      li.nav-item.dropdown
+        a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+          | Tra c&#x1EE9;u
+        .dropdown-menu(aria-labelledby='navbarDropdownMenuLink')
+          a.dropdown-item(href='/search') Theo d&otilde;i nhi&ecirc;n li&#x1EC7;u
+          a.dropdown-item(href='/search_2') T&#x1ED5;ng k&#x1EBF;t nhi&ecirc;n li&#x1EC7;u
+          a.dropdown-item(href='/search_chu') T&#x1ED5;ng k&#x1EBF;t chuyen
+.container
+  form(method='POST', action='save')
+    .form-group.input-group.mx-auto.pt-2.col-lg-4.col-sm-8.col-xs-12
+      .col-12
+        label(for='bienso') Bi&#x1EC3;n s&#x1ED1; xe
+        input#bienso.form-control.text-center(type='text', name='bienso', placeholder='51c-12345')
+        label(for='username') T&ecirc;n t&agrave;i x&#x1EBF;
+        input#username.form-control.text-center(type='text', name='username', placeholder='Nguyễn Văn A')
+        label(for='capacity') S&#x1ED1; l&iacute;t d&#x1EA7;u
+        input#capacity.form-control.text-center(type='number', name='capacity', placeholder='0')
+        label(for='km') S&#x1ED1; KM
+        input#km.form-control.text-center(type='number', name='km', placeholder='0')
+        label(for='km') Tr&#x1EA1;m x&abreve;ng
+        select#ncc.form-control.text-center(type='text', name='ncc')
+          option(value='')  ---------
+          option(value='Tân Đức') T&acirc;n &Dstrok;&#x1EE9;c
+          option(value='Phú Định')  Ph&uacute; &Dstrok;&#x1ECB;nh
+        button.btn.btn-success.mt-2(type='button', onclick='save()') L&#x1B0;u

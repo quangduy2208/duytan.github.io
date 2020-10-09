@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="top">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark mtren">
+            <div class="container fontgoo">
+                <a class="navbar-brand logo" href="#">Navbar</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mphai">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Thông báo</a>
+                        </li>
+                        <li class="nav-item dropdown  active">
+                            <a class="nav-link dropdown-toggle " href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tra cứu</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="#">Tổng kết </a>
+                                <a class="dropdown-item  active" href="#">Nhiên liệu</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link btn btn-outline-danger nutsignup" href="#">Đăng nhập</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav><!-- het nav -->
+       <div class="container">
+            <form action="gsheet" method="get">
+                <div class="form-group mx-auto pt-2 col-lg-4 col-sm-8 col-xs-12 d-flex justify-content-between">
+                    <label for=""></label>
+                    <input type="text" name="bienso" id="" class="form-control text-center mr-1" placeholder="so xe" aria-describedby="helpId">
+                    <button class="btn btn-success" type="submit" >Tìm</button>
+                
+                </div>
+            </form>
+            <% if(bienso){ %>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Stt</th>
+                            <th scope="col">Ngày</th>
+                            <th scope="col">Số xe</th>
+                            <th scope="col">Lít</th>
+                            <th scope="col">KM</th>
+                            <th scope="col">Chốt dầu</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        <% for (var i = rows.length -1 ; i > 0  ; i--) { %>
+                           <% if (i === rows.length -10) {break;} %>
+                              
+                        <tr>
+                            <td><%= rows.length-i %></td>
+                            <td><%= rows[i].ngay %></td>
+                            <td><%= rows[i].bienso %></td>
+                            <td><%= rows[i].lit %></td>
+                            <td><%= rows[i].kmco %></td>
+                            <td><%= rows[i].daybinh %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+                <% } %>
+                <% if(error){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+                <% } %>
+        </div>
+
+    </div>
+    <script src="js/jquery-3.2.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
